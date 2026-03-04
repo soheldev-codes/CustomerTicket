@@ -30,8 +30,8 @@ const NavMenu = () => {
     </>
   );
   return (
-    <div className=" bg-base-100 shadow-sm">
-      <div className="navbar container mx-auto">
+    <div className=" sticky top-0 bg-base-100 shadow-sm z-20">
+      <div className="navbar container  mx-auto">
         <div className="navbar-start ">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">

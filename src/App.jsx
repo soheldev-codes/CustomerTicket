@@ -5,6 +5,7 @@ import MainSection from "./Components/MainSection/MainSection";
 import NavMenu from "./Components/NavMenu/NavMenu";
 
 import { tickets } from "./Data/Data";
+import { toast } from "react-toastify";
 
 function App() {
   const [allTickets, setAllTickets] = useState([...tickets]);
@@ -17,6 +18,8 @@ function App() {
     const remaining = allTickets.find((ticket) => ticket.id === ticketId);
     const updateStatus = { ...remaining, status: "inprogress" };
     setInProgressTickets([...inProgressTickets, updateStatus]);
+
+    toast.success("Succefully Added PrgressBar!");
 
     // const ticket = allTickets.find((t) => t.id === ticketId);
     // if (ticket)
@@ -36,6 +39,8 @@ function App() {
     setResolvedTickets([...resolvedTickets, updateStatus]);
     // Remove from allTickets
     setAllTickets((prev) => prev.filter((t) => t.id !== ticketId));
+
+    toast.success("Complete Task");
   };
 
   return (
