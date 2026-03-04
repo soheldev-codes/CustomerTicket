@@ -12,9 +12,12 @@ const MainSection = ({
   return (
     <div className="container  mx-auto mt-10 gap-5">
       <h2 className="text-2xl font-semibold py-4">Customer Tickets</h2>
-      <div className="grid grid-cols-12 gap-4">
-        <div className="  col-span-8 rounded ">
-          <div className="grid grid-cols-2 gap-4">
+      <div
+        className="grid grid-cols-1
+       md:grid-cols-12 md:space-x-4"
+      >
+        <div className="  col-span-9 rounded ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {tickets.map((ticket) => (
               <SingleTicket
                 handleCardBtn={handleCardBtn}
@@ -24,7 +27,8 @@ const MainSection = ({
             ))}
           </div>
         </div>
-        <div className="shadow space-y-4 p-4 col-span-4 rounded">
+        {/* Right Side */}
+        <div className="  space-y-4 p-4 col-span-3 rounded">
           <div>
             <h2 className="text-2xl mb-2 font-semibold">Task Status</h2>
             <div>

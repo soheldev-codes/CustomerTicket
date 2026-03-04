@@ -19,6 +19,12 @@ function App() {
     const updateStatus = { ...remaining, status: "inprogress" };
     setInProgressTickets([...inProgressTickets, updateStatus]);
 
+    const updatedTickets = allTickets.map((ticket) =>
+      ticket.id === ticketId ? { ...ticket, status: "inprogress" } : ticket,
+    );
+
+    setAllTickets(updatedTickets);
+
     toast.success("Succefully Added PrgressBar!");
 
     // const ticket = allTickets.find((t) => t.id === ticketId);
@@ -44,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className="bg-base-200">
+    <div className="bg-base-200 ">
       <NavMenu />
       <Dashbord
         inProgressTickets={inProgressTickets}
