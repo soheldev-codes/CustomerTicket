@@ -6,6 +6,7 @@ import NavMenu from "./Components/NavMenu/NavMenu";
 
 import { tickets } from "./Data/Data";
 import { toast } from "react-toastify";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   const [allTickets, setAllTickets] = useState([...tickets]);
@@ -63,6 +64,7 @@ function App() {
         handleComplete={handleComplete}
         tickets={allTickets}
       />
+      <Footer />
     </div>
   );
 }
