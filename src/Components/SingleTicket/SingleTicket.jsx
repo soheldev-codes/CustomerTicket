@@ -1,7 +1,9 @@
-const SingleTicket = ({ ticket }) => {
-  console.log(ticket);
+const SingleTicket = ({ ticket, handleCardBtn }) => {
   return (
-    <div className=" p-4 shadow cursor-pointer">
+    <div
+      onClick={() => handleCardBtn(ticket.id)}
+      className=" p-4 shadow cursor-pointer"
+    >
       <h3 className="font-bold">{ticket?.title}</h3>
       <p>{ticket?.description}</p>
       <p>Customer: {ticket?.customer}</p>
