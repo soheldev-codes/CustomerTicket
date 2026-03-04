@@ -10,7 +10,7 @@ const MainSection = ({
 }) => {
   console.log(resolvedTickets);
   return (
-    <div className="container mx-auto mt-10 gap-5">
+    <div className="container  mx-auto mt-10 gap-5">
       <h2 className="text-2xl font-semibold py-4">Customer Tickets</h2>
       <div className="grid grid-cols-12 gap-4">
         <div className="  col-span-8 rounded ">
@@ -24,37 +24,51 @@ const MainSection = ({
             ))}
           </div>
         </div>
-        <div className="shadow  col-span-4 rounded">
+        <div className="shadow space-y-4 p-4 col-span-4 rounded">
           <div>
-            <h2>Task Status</h2>
-            <p>Select a ticket to add to Task Status</p>
-
+            <h2 className="text-2xl mb-2 font-semibold">Task Status</h2>
             <div>
-              {inProgressTickets.map((ticket) => (
-                <div
-                  key={ticket.id}
-                  className="card p-4 mb-2 shadow bg-green-100"
-                >
-                  <p>{ticket.title}</p>
-                  <p>{ticket.customer}</p>
-                  <button
-                    className="btn"
-                    onClick={() => handleComplete(ticket.id)}
-                  >
-                    Complete
-                  </button>
+              {inProgressTickets.length ? (
+                <div>
+                  {inProgressTickets.map((ticket) => (
+                    <div
+                      key={ticket.id}
+                      className="card p-2 mb-2 space-y-2 shadow bg-white"
+                    >
+                      <p>{ticket.title}</p>
+                      <p>{ticket.customer}</p>
+                      <button
+                        className="btn bg-green-500 text-white font-semibold"
+                        onClick={() => handleComplete(ticket.id)}
+                      >
+                        Complete
+                      </button>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <p>Select a ticket to add to Task Status</p>
+              )}
             </div>
           </div>
           <div>
-            <h2>Resolved Task</h2>
-            <p>No resolved tasks yet.</p>
-            {resolvedTickets.length}
+            <h2 className="text-2xl mb-2 font-semibold">Resolved Task</h2>
+
             <div>
-              {resolvedTickets.map((ticket) => (
-                <p key={ticket.id}>{ticket.title}</p>
-              ))}
+              {resolvedTickets.length ? (
+                <div className="space-y-2">
+                  {resolvedTickets.map((ticket) => (
+                    <p
+                      className="bg-blue-100 p-2 rounded font-semibold "
+                      key={ticket.id}
+                    >
+                      {ticket.title}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p>No resolved tasks yet.</p>
+              )}
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ const SingleTicket = ({ ticket, handleCardBtn }) => {
   return (
     <div
       onClick={() => handleCardBtn(ticket.id)}
-      className=" p-4 shadow cursor-pointer"
+      className=" p-4 bg-white rounded-md shadow cursor-pointer hover:bg-gray-50"
     >
       <h3 className="font-bold">{ticket?.title}</h3>
       <p>{ticket?.description}</p>

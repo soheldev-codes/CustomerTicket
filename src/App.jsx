@@ -31,16 +31,15 @@ function App() {
     // Remove from inProgress
     setInProgressTickets((prev) => prev.filter((t) => t.id !== ticketId));
     // Add to resolved
-    setResolvedTickets((prev) => [
-      ...prev,
-      { ...allTickets, status: "resolved" },
-    ]);
+    const remaining = allTickets.find((ticket) => ticket.id === ticketId);
+    const updateStatus = { ...remaining, status: "inprogress" };
+    setResolvedTickets([...resolvedTickets, updateStatus]);
     // Remove from allTickets
     setAllTickets((prev) => prev.filter((t) => t.id !== ticketId));
   };
 
   return (
-    <div className="">
+    <div className="bg-base-200">
       <NavMenu />
       <Dashbord
         inProgressTickets={inProgressTickets}
